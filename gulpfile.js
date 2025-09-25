@@ -8,6 +8,7 @@ const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const fileInclude = require('gulp-file-include');
 
+// --- Bootstrap таски ---
 const bootstrapCSS = () => {
     return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
         .pipe(dest('dist/css'));
@@ -18,15 +19,23 @@ const bootstrapJS = () => {
         .pipe(dest('dist/js'));
 }
 
-// HTML таска
-const html_task = () => src('app/index.html')
-    .pipe(fileInclude({
-        prefix: '@@',
-        basepath: '@file'
-    }))
-    .pipe(dest('dist'));
+// --- HTML таска (об’єднання всіх сторінок в один) ---
+const html_task = () => {
+    return src([
+        "app/html/main.html",
 
-// SCSS таска
+
+    ])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(concat('index.html'))
+        .pipe(dest('dist'))
+        .pipe(browserSync.stream());
+};
+
+// --- SCSS таска ---
 const scss_task = () => {
     return src('app/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -36,7 +45,7 @@ const scss_task = () => {
         .pipe(browserSync.stream());
 };
 
-// JS таска
+// --- JS таска ---
 const js_task = () => {
     return src('app/js/*.js')
         .pipe(concat('script.min.js'))
@@ -45,14 +54,15 @@ const js_task = () => {
         .pipe(browserSync.stream());
 };
 
-// Images таска
+// --- Images таска ---
 const img_task = () => {
-    return src('app/img/**/*.{webp,png,jpg,jpeg}', { encoding: false })
-        .pipe(dest('dist/image'))
+    return src('app/img/**/*.{webp,png,jpg,jpeg}', {encoding: false})
+        .pipe(imagemin())
+        .pipe(dest('dist/img'))
         .pipe(browserSync.stream());
 };
 
-// BrowserSync та Watch
+// --- BrowserSync та Watch ---
 const serve = () => {
     browserSync.init({
         server: {
@@ -60,15 +70,14 @@ const serve = () => {
         }
     });
 
-    watch('app/*.html', html_task);
-    watch('app/scss/*.scss', scss_task);
-    watch('app/js/*.js', js_task);
-    watch('app/image/**/*', img_task);
+    watch('app/html/**/*.html', html_task);
+    watch('app/scss/**/*.scss', scss_task);
+    watch('app/js/**/*.js', js_task);
+    watch('app/img/**/*', img_task);
 };
 
-// Default таска
+// --- Default таска ---
 exports.default = series(
-    parallel(html_task, scss_task, js_task, img_task),
+    parallel(html_task, scss_task, js_task, img_task, bootstrapCSS, bootstrapJS),
     serve
 );
-

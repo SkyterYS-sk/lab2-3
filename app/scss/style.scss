@@ -1,0 +1,164 @@
+/* Загальний фон сторінки */
+body {
+  background: #e9e9ea;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 10px;
+}
+
+.container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25),
+  0 10px 22px rgba(0,0,0,0.12);
+  padding: 40px;
+  max-width: 1650px;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50px;
+  right: 50px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+}
+
+
+.card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  background: rgba(0, 0, 0, 0.8);
+  height: 30%;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.info-1 {
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.info-2 {
+  font-size: 72px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+}
+
+.info-3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 8px 0 0;
+}
+
+/* --- ПРАВА ЧАСТИНА --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 30px;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.ABOUT,
+.AWARDS {
+  height: 39px;
+  border-radius: 40px;
+  background-color: #000000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  padding: 30px 30px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 200px;
+}
+
+.text-1 {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* --- ТЕКСТОВІ БЛОКИ --- */
+.text-2 {
+  max-width: 100%;
+  max-height: 200px;
+  font-size: 24px;
+  line-height: 34px;
+  color: #515355;
+  font-weight: 400;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.text-3 {
+  font-size: 38px;
+  text-transform: uppercase;
+  color: #444444;
+  font-weight: 900;
+}
+
+.text-4 {
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #444444;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.text-5 {
+  max-width: 100%;
+  height: 120px;
+  font-size: 22px;
+  line-height: 32px;
+  color: #444444;
+  font-weight: 400;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.text-6 {
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #444444;
+  font-weight: 600;
+  font-style: italic;
+}
+
+
