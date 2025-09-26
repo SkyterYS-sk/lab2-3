@@ -1,3 +1,4 @@
+/* --- ОСНОВА --- */
 body {
   background: #e9e9ea;
   min-height: 100vh;
@@ -14,29 +15,47 @@ body {
   0 10px 22px rgba(0,0,0,0.12);
   padding: 40px;
   max-width: 1600px;
+  width: 100%;
   border: 1px solid rgba(0,0,0,0.05);
   position: relative;
+
+  display: flex;
+  flex-wrap: wrap;       /* щоб елементи переносилися */
+  gap: 40px;
+  justify-content: center;
 }
 
-.container::before {
+.col-md-4 {
+  position: relative; /* щоб ::before працював відносно цього блоку */
+}
+
+.col-md-4::before {
   content: "";
   position: absolute;
-  top: 14px;
-  left: 50px;
-  right: 50px;
-  height: 4px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  top: -25px;               /* трохи над фото */
+  left: 50%;                /* стартує з центру */
+  transform: translateX(-50%); /* щоб вирівняти по центру */
+  width: 50%;               /* ширина тільки 40% від блоку */
+  height: 8px;
+  border-radius: 0px;
+  background: linear-gradient(
+                  90deg,
+                  rgba(0,0,0,0.15),
+                  rgba(0,0,0,0.05)
+  );
+  z-index: 10; /* поверх фото */
 }
 
 
+/* --- КАРТКА --- */
 .card {
-  position: relative; /* робимо контейнер відносним */
+  position: relative;
   border: none;
   border-radius: 20px;
   overflow: hidden;
-  height: 500px;
-  width: 450px;
+  flex: 0 1 400px;         /* адаптивна ширина */
+  max-width: 600px;
+  aspect-ratio: 9/10;      /* замість height */
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -47,15 +66,21 @@ body {
   display: block;
 }
 
+/* --- ІНФО --- */
 .info {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(210, 210, 210, 0.7); /* #d2d2d2 прозорий */
+  background-color: rgba(210, 210, 210, 0.7);
   height: 30%;
   text-align: center;
-  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .info-1,
@@ -63,166 +88,324 @@ body {
 .info-3 {
   margin: 0;
   padding: 0;
-  color: #fff;        /* білий текст */
+  line-height: 1.1;
+  color: #ffffff;
 }
 
+/* Заголовки */
 .info-1 {
-  font-size: 40px;
+  font-size: clamp(18px, 1.8vw, 28px);
   text-transform: uppercase;
   font-weight: 400;
-  line-height: 1;     /* щільність між рядками */
-  display: block;
 }
 
 .info-2 {
-  font-size: 90px;
+  font-size: clamp(32px, 3.5vw, 72px);  /* головний акцент */
   text-transform: uppercase;
   font-weight: 900;
-  line-height: 0.6;
-  display: block;
+  line-height: 1;
 }
 
 .info-3 {
-  font-size: 25px;
+  font-size: clamp(14px, 1.4vw, 22px);
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 10px;
-  line-height: 1;
 }
 
 /* --- ПРАВА ЧАСТИНА --- */
 .content {
+  flex: 1 1 600px;     /* займає решту простору */
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   gap: 30px;
-  overflow: hidden;
   box-sizing: border-box;
-  max-width: 100%;
 }
 
-.ABOUT,
+/* кнопки ABOUT / AWARDS */
 .AWARDS {
-  height: 39px;
   border-radius: 40px;
-  background-color: #000000;
-
+  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 
-  padding: 30px 30px;
+  padding: 2px 15px;
+  min-width: 200px;
+  max-width: 20%;
+
+  margin: 0 0 6px 0;   /* тільки маленький відступ знизу (6px), щоб не злипалось */
   box-sizing: border-box;
-  text-align: center;
-  width: 200px;
+}
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;           /* займає всю ширину колонки */
 }
 
-.text-1 {
-  font-size: 25px;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  font-family: "Lato", sans-serif;
-  line-height: 1;
+
+.ABOUT {
+  border-radius: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 15px;
+  min-width: 200px;
+  max-width: 30%;        /* ширина блоку ABOUT */
   margin: 0;
 }
 
-/* --- ТЕКСТОВІ БЛОКИ --- */
+.about-section {
+  width: 100%;
+}
+
+.about-line {
+  flex: 80%; /* займає весь доступний простір */
+  height: 8px;
+  border-radius: 0px;
+  background: linear-gradient(
+                  90deg,
+                  rgba(0,0,0,0.15),
+                  rgba(0,0,0,0.05)
+  );
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* відстань між ABOUT і лінією */
+}
+
+.text-1 {
+  font-size: clamp(18px, 2vw, 28px);
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+/* --- ТЕКСТ --- */
 .text-2 {
-  max-width: 100%;
-  max-height: 200px;
-  font-size: 24px;
-  line-height: 34px;
+  font-size: clamp(16px, 1.6vw, 24px);
+  line-height: 1.6;
   color: #515355;
-  font-weight: 400;
-  overflow: hidden;
-  word-wrap: break-word;
+
+  display: block;
+  width: 100%;        /* тепер займає всю ширину секції */
+  margin: 10px 0 0;   /* маленький відступ від лінії */
+  text-align: left;
+}
+
+p.text-3,
+p.text-4 {
+  margin: 0 !important;   /* перекриває дефолт Bootstrap */
+  padding: 0 !important;
 }
 
 .text-3 {
-  font-size: 38px;
+  font-size: clamp(20px, 2vw, 38px);
+  font-weight: 300;
   text-transform: uppercase;
-  color: #444444;
-  font-weight: 900;
+  color: #444;
+
+  margin: 0;   /* прибрали відступи */
+  padding: 0;
+  display: block;
 }
 
 .text-4 {
-  font-size: 28px;
-  text-transform: uppercase;
-  color: #444444;
+  font-size: clamp(16px, 1.6vw, 28px);
   font-weight: 700;
   font-style: italic;
+  text-transform: uppercase;
+  color: #444;
+
+  margin: 0;   /* теж без відступів */
+  padding: 0;
+  display: block;
 }
 
 .text-5 {
-  max-width: 100%;
-  height: 120px;
-  font-size: 22px;
-  line-height: 32px;
-  color: #444444;
-  font-weight: 400;
-  overflow: hidden;
-  word-wrap: break-word;
+  font-size: clamp(14px, 1.2vw, 22px);
+  line-height: 1.5;
+  color: #444;
+
+  margin: 4px 0 0 0;  /* невеликий відступ зверху */
+  padding: 0;
 }
 
 .text-6 {
-  font-size: 28px;
-  text-transform: uppercase;
-  color: #444444;
+  font-size: clamp(16px, 1.6vw, 28px);
   font-weight: 600;
   font-style: italic;
+  text-transform: uppercase;
+  color: #444;
+
+  margin: 4px 0 0 0;  /* також маленький відступ */
+  padding: 0;
 }
+
+/* --- ДОДАТКОВІ КАРТКИ --- */
 .mb-4 {
-  position: relative;
-  max-width: 500px;
-  margin: 60px auto;
-}
-
-.REFERENC {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  border-radius: 40px;
-  background-color: #000;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.card-custom {
-  width: 100%;
-  border-radius: 60px;
-  background-color: transparent;
-  border: 6px solid #e2e2e2;
-  padding: 70px 30px 30px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-}
-
-.card-custom p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-  margin: 0 0 20px;
-}
-
-.card-custom strong {
-  display: block;
-  font-size: 20px;
-  color: #515355;
-  margin-bottom: 5px;
-}
-
-.col-md-6 {
   position: relative;
   max-width: 700px;
   margin: 60px auto;
 }
 
+.SECTION {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  border-radius: 40px;
+  background-color: #000;
 
+  /* замість height */
+  min-height: 50px;
+  padding: 10px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.SECTION .text-1 {
+  font-size: clamp(14px, 1.5vw, 22px);
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;       /* щоб рівнялось по центру */
+  line-height: 1.2;         /* більше повітря між рядками */
+  word-break: break-word;   /* перенос довгих слів */
+}
+
+.card-custom {
+  width: 100%;
+  border-radius: 40px;
+  background: transparent;
+  border: 6px solid #e2e2e2;
+  padding: 70px 30px 30px; /* відступ зверху щоб текст не налазив */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content {
+    flex: 1 1 auto;
+    padding: 10px;
+  }
+}
+
+.text-7,
+.text-8 {
+  margin: -15px !important;   /* прибрали відступи зверху і знизу */
+  padding: 0 !important;  /* на всякий випадок */
+}
+
+.text-7 {
+  font-size: 27px;
+  text-transform: uppercase;
+  color: #515355;
+  font-weight: 900;
+  font-family: "Lato";
+  line-height: 1.1;  /* компактний */
+}
+
+.text-8 {
+  font-size: 25px;
+  line-height: 1.1;  /* щоб не розтягувало */
+  text-transform: uppercase;
+  color: #515355;
+  font-weight: 400;
+  font-family: "Lato";
+}
+
+.text-9,
+.text-10 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.text-9 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #515355;
+  text-align: left;
+}
+
+.text-10 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #515355;
+  text-align: left;
+}
+
+.text-11 {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #515355;
+}
+
+.text-12 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 5px;
+  text-align: left;
+  color: #515355;
+}
+
+.CONTACT {
+  font-size: 35px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #010101;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 15px;
+}
+
+.NUMBER {
+  font-size: 25px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #515355;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 10px;
+}
+
+.URL {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #515355;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;        /* прибирає зовнішні відступи */
+  padding: 0;       /* якщо є внутрішні */
+}
+
+.LOCATE {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #515355;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}

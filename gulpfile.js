@@ -23,8 +23,6 @@ const bootstrapJS = () => {
 const html_task = () => {
     return src([
         "app/html/main.html",
-
-
     ])
         .pipe(fileInclude({
             prefix: '@@',
