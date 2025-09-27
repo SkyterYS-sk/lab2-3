@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container mt-5">
   <div class="row">
-    <!-- Ліва частина (фото) -->
     <div class="col-md-4">
       <div class="card">
         <img src="img/download.jpg" class="img" alt="profile">
@@ -22,22 +22,22 @@
       </div>
     </div>
 
-    <!-- Права частина (контент) -->
-    <div class="col-md-8">
+    <div class="col-8">
       <div class="row">
         <div class="col-12">
           <div class="about-section">
             <div class="about-wrapper">
-              <div class="ABOUT"><p class="text-1">ABOUT ME</p></div>
+              <div class="ABOUT"><i class="fa-solid fa-user icon-white"></i> <p class="text-1">ABOUT ME</p></div>
               <div class="about-line"></div>
             </div>
 
             <p class="text-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-              Quis ipsum suspendisse ultrices gravida. Risus commodo viverra<br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
               maecenas accumsan lacus vel.
             </p>
+            <br>
           </div>
         </div>
       </div>
@@ -45,6 +45,7 @@
       <div class="row mt-4">
         <div class="col-12">
           <div class="AWARDS"><p class="text-1">AWARDS</p></div>
+          <br>
         </div>
 
         <div class="col-md-6">
@@ -64,9 +65,8 @@
     </div>
 
   </div>
-  @@include('main-2.html')
+  @@include('content.html')
 </div>
-
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+/* --- АДАПТИВ --- */
+@media (max-width: 1024px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .content {
+    flex: none;
+    width: 100%;
+  }
+
+  .about-wrapper {
+    gap: 20px;
+  }
+
+  .languages h2 {
+    font-size: 36px;
+  }
+
+  .language span,
+  .language-2 span,
+  .language-3 span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-13 {
+    font-size: 28px;
+  }
+
+  .CONTACT {
+    font-size: 28px;
+  }
+
+  .NUMBER,
+  .URL,
+  .LOCATE {
+    font-size: 18px;
+  }
+
+  .skills-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hobby-list li {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AWARDS,
+  .ABOUT {
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .SECTION {
+    width: 100%;
+    padding: 8px 15px;
+  }
+
+  .SECTION .text-1 {
+    font-size: 14px;
+  }
+
+  .card-custom {
+    padding: 60px 15px 20px;
+  }
+
+  .hobby-list li {
+    font-size: 16px;
+    padding-left: 25px;
+  }
+
+  .language span,
+  .language-2 span,
+  .language-3 span {
+    font-size: 18px;
+  }
+}

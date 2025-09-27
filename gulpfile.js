@@ -22,7 +22,7 @@ const bootstrapJS = () => {
 // --- HTML таска (об’єднання всіх сторінок в один) ---
 const html_task = () => {
     return src([
-        "app/html/main.html",
+        "app/html/header.html",
     ])
         .pipe(fileInclude({
             prefix: '@@',
