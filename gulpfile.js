@@ -20,18 +20,12 @@ const bootstrapJS = () => {
 }
 
 // --- HTML таска (об’єднання всіх сторінок в один) ---
-const html_task = () => {
-    return src([
-        "app/html/header.html",
-    ])
-        .pipe(fileInclude({
-            prefix: '@@',
-            basepath: '@file'
-        }))
-        .pipe(concat('index.html'))
-        .pipe(dest('dist'))
-        .pipe(browserSync.stream());
-};
+const html_task = () => src('app/index.html')
+    .pipe(fileInclude({
+        prefix: '@@',
+        basepath: '@file'
+    }))
+    .pipe(dest('dist'));
 
 // --- SCSS таска ---
 const scss_task = () => {

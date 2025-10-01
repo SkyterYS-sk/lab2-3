@@ -1,60 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <div>
+<div class="row">
+
+    <div class="col-md-8">
         <div class="row">
-            <!-- Skills (8 колонок) -->
-            <div class="col-md-8">
-                <div class="row">
-                    <!-- Ліва підколонка -->
-                    <div class="col-6">
-                        <p class="text-13"><i class="fa-solid fa-gears"></i> <strong>Skills</strong></p>
+            <!-- Ліва підколонка -->
+            <div class="col-6">
+                <p class="text-13"><i class="fa-solid fa-gears"></i> <strong>Skills</strong></p>
 
-                        <div class="skill">
-                            <div class="text-14"><strong>Microsoft Word</strong></div>
-                            <div class="progress"><div></div></div>
-                        </div>
+                <div class="skill">
+                    <div class="text-14"><strong>Microsoft Word</strong></div>
+                    <input type="range" value="50" style="--val:50%;">
+                </div>
 
-                        <div class="skill">
-                            <div class="text-14"><strong>Web Designing</strong></div>
-                            <div class="progress"><div></div></div>
-                        </div>
-                    </div>
-
-                    <!-- Права підколонка -->
-                    <div class="col-6">
-                        <br>
-                        <div class="about-line-2"></div>
-                        <br>
-                        <div class="skill">
-                            <div class="text-14"><strong>Graphic Designing</strong></div>
-                            <div class="progress"><div></div></div>
-                        </div>
-
-                        <div class="skill">
-                            <div class="text-14"><strong>Microsoft PowerPoint</strong></div>
-                            <div class="progress"><div></div></div>
-                        </div>
-                    </div>
+                <div class="skill">
+                    <div class="text-14"><strong>Web Designing</strong></div>
+                    <input type="range" value="50" style="--val:50%;">
                 </div>
             </div>
 
-            <!-- Hobbies (4 колонки) -->
-            <div class="col-4 hobbies order-md-2 text-start">
-                <p class="text-13"><strong>Hobbies</strong></p>
-                <ul class="hobby-list">
-                    <li>Writing</li>
-                    <li>Reading Books</li>
-                    <li>Playing Football</li>
-                    <li>Photography</li>
-                    <li>Traveling</li>
-                </ul>
+            <div class="col-6">
+                <br>
+                <div class="about-line-2"></div>
+                <br>
+                <div class="skill">
+                    <div class="text-14"><strong>Graphic Designing</strong></div>
+                    <input type="range" value="50" style="--val:50%;">
+                </div>
+
+                <div class="skill">
+                    <div class="text-14"><strong>Microsoft PowerPoint</strong></div>
+                    <input type="range" value="50" style="--val:50%;">
+                </div>
             </div>
+
         </div>
-        @@include('extra-footer.html')
     </div>
-</body>
-</html>
+
+    <div class="col-4 hobbies order-md-2 text-start">
+        <p class="text-13"><strong>Hobbies</strong></p>
+        <ul class="hobby-list">
+            <li>Writing</li>
+            <li>Reading Books</li>
+            <li>Playing Football</li>
+            <li>Photography</li>
+            <li>Traveling</li>
+        </ul>
+    </div>
+
+</div>
