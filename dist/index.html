@@ -6,19 +6,19 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
 </head>
 <body>
-
 <div class="container mt-5">
-
     <section>
         <div class="row">
     <div class="col-md-4">
       <div class="card">
         <img src="img/image.jpg" class="img" alt="profile">
         <div class="info">
-          <p class="info-1">BRIAN S .</p>
-          <p class="info-2">NEAL</p>
+          <p class="info-1" id="firstName"></p>
+          <p class="info-2" id="lastName"></p>
           <p class="info-3">GRAPHIC & WEB DESIGNER</p>
         </div>
       </div>
@@ -87,12 +87,14 @@
                 </div>
             </div>
 
-            <div>
-                <div class="CONTACT"><strong>CONTACT ME</strong></div>
-                <div class="">
+            <div class="contact-block">
+                <div class="contact-header CONTACT">
+                    <strong>CONTACT ME</strong>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </div>
+                <div class="contact-content">
                     <p class="NUMBER"><i class="fa-solid fa-phone"></i> +4-756-822-5156</p>
                     <p class="URL"><i class="fa-solid fa-globe"></i> www.yourwebsite.com yourinfo@email.com</p>
-                    <br>
                     <p class="LOCATE"><i class="fa-solid fa-location-dot"></i> 1173 Valley Street, Camden, NJ 08102</p>
                 </div>
             </div>
@@ -178,48 +180,26 @@
 
     <div class="col-md-8">
         <div class="row">
-            <!-- Ліва підколонка -->
-            <div class="col-6">
-                <p class="text-13"><i class="fa-solid fa-gears"></i> <strong>Skills</strong></p>
-
-                <div class="skill">
-                    <div class="text-14"><strong>Microsoft Word</strong></div>
-                    <input type="range" value="50" style="--val:50%;">
+            <div class="row">
+                <div class="col-6">
+                    <p class="text-13">
+                        <i class="fa-solid fa-gears"></i>
+                        <strong>Skills</strong>
+                    </p>
+                    <div id="skillsLeft"></div>
                 </div>
 
-                <div class="skill">
-                    <div class="text-14"><strong>Web Designing</strong></div>
-                    <input type="range" value="50" style="--val:50%;">
-                </div>
-            </div>
-
-            <div class="col-6">
-                <br>
-                <div class="about-line-2"></div>
-                <br>
-                <div class="skill">
-                    <div class="text-14"><strong>Graphic Designing</strong></div>
-                    <input type="range" value="50" style="--val:50%;">
-                </div>
-
-                <div class="skill">
-                    <div class="text-14"><strong>Microsoft PowerPoint</strong></div>
-                    <input type="range" value="50" style="--val:50%;">
+                <div class="col-6">
+                    <div class="about-line-2"></div>
+                    <div id="skillsRight"></div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <div class="col-4 hobbies order-md-2 text-start">
         <p class="text-13"><strong>Hobbies</strong></p>
-        <ul class="hobby-list">
-            <li>Writing</li>
-            <li>Reading Books</li>
-            <li>Playing Football</li>
-            <li>Photography</li>
-            <li>Traveling</li>
-        </ul>
+        <ul class="hobby-list" id="hobbies"></ul>
     </div>
 
 </div>
@@ -233,7 +213,7 @@
       <div class="line"></div>
     </div>
     <div class="col-4 text-center col-with-vline">
-      <div class="itle-boxt ">
+      <div class="title-box">
         <span class="v-line left"></span>
         <h2 class="text-15">Languages</h2>
         <span class="v-line right"></span>
@@ -247,47 +227,17 @@
   <br><br>
 
   <div class="row">
-    <div class="col-4">
-      <div class="language-2">
-        <span>English</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-      <div class="language-2">
-        <span>Spanish</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="language">
-        <span>French</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-      <div class="language">
-        <span>German</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="language-3">
-        <span>Japanese</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-      <div class="language-3">
-        <span>Portuguese</span>
-        <input type="range" value="75" max="100" style="--val:75%">
-      </div>
-    </div>
+    <div class="col-4" id="col1"></div>
+    <div class="col-4" id="col2"></div>
+    <div class="col-4" id="col3"></div>
   </div>
+
 
 </div>
 
     </section>
-
 </div>
-
-
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/script.min.js"></script>
 </body>
 </html>

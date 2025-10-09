@@ -20,7 +20,7 @@ const bootstrapJS = () => {
 }
 
 // --- HTML таска (об’єднання всіх сторінок в один) ---
-const html_task = () => src('app/index.html')
+const html_task = () => src('src/app/index.html')
     .pipe(fileInclude({
         prefix: '@@',
         basepath: '@file'
@@ -29,7 +29,7 @@ const html_task = () => src('app/index.html')
 
 // --- SCSS таска ---
 const scss_task = () => {
-    return src('app/scss/*.scss')
+    return src('src/app/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(cssnano())
         .pipe(rename({ suffix: '.min' }))
@@ -39,7 +39,7 @@ const scss_task = () => {
 
 // --- JS таска ---
 const js_task = () => {
-    return src('app/js/*.js')
+    return src('src/app/js/*.js')
         .pipe(concat('script.min.js'))
         .pipe(uglify())
         .pipe(dest('dist/js'))
@@ -48,7 +48,7 @@ const js_task = () => {
 
 // --- Images таска ---
 const img_task = () => {
-    return src('app/img/**/*.{webp,png,jpg,jpeg}', {encoding: false})
+    return src('src/app/img/**/*.{webp,png,jpg,jpeg}', {encoding: false})
         .pipe(imagemin())
         .pipe(dest('dist/img'))
         .pipe(browserSync.stream());
@@ -62,10 +62,10 @@ const serve = () => {
         }
     });
 
-    watch('app/html/**/*.html', html_task);
-    watch('app/scss/**/*.scss', scss_task);
-    watch('app/js/**/*.js', js_task);
-    watch('app/img/**/*', img_task);
+    watch('src/app/html/**/*.html', html_task);
+    watch('src/app/scss/**/*.scss', scss_task);
+    watch('src/app/js/**/*.js', js_task);
+    watch('src/app/img/**/*', img_task);
 };
 
 // --- Default таска ---
