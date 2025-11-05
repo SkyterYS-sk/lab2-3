@@ -1,0 +1,37 @@
+{
+  "firstName": "BRIAN S .",
+  "lastName": "Neal",
+
+  "skillsLeft": [
+    { "name": "Microsoft Word", "value": 50 },
+    { "name": "Web Designing", "value": 75 }
+  ],
+
+  "skillsRight": [
+    { "name": "Graphic Designing", "value": 60 },
+    { "name": "Microsoft PowerPoint", "value": 80 }
+  ],
+
+  "hobbyArray": [
+    "Writing",
+    "Reading Books",
+    "Playing Football",
+    "Photography",
+    "Traveling"
+  ],
+
+  "col1Skills": [
+    { "name": "English", "value": 75 },
+    { "name": "Spanish", "value": 75 }
+  ],
+
+  "col2Skills": [
+    { "name": "French", "value": 75 },
+    { "name": "German", "value": 75 }
+  ],
+
+  "col3Skills": [
+    { "name": "Japanese", "value": 75 },
+    { "name": "Portuguese", "value": 75 }
+  ]
+}

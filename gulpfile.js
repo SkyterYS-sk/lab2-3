@@ -19,28 +19,34 @@ const bootstrapJS = () => {
         .pipe(dest('dist/js'));
 }
 
-// --- HTML таска (об’єднання всіх сторінок в один) ---
-const html_task = () => src('src/app/index.html')
-    .pipe(fileInclude({
-        prefix: '@@',
-        basepath: '@file'
-    }))
-    .pipe(dest('dist'));
+// --- HTML таска (об’єднання всіх сторінок та компонентів) ---
+const html_task = () => {
+    return src('src/app/*.html') // головні html файли
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest('dist'))
+        .pipe(browserSync.stream());
+};
 
-// --- SCSS таска ---
+// --- SCSS таска (всі SCSS з компонентів та глобальні) ---
 const scss_task = () => {
-    return src('src/app/scss/*.scss')
+    return src([
+        'src/app/scss/**/*.scss',
+        'src/app/components/**/*.scss'
+    ])
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('style.min.css'))
         .pipe(cssnano())
-        .pipe(rename({ suffix: '.min' }))
         .pipe(dest('dist/css'))
         .pipe(browserSync.stream());
 };
 
-// --- JS таска ---
+// --- JS таска (усі JS з компонентів) ---
 const js_task = () => {
-    return src('src/app/js/*.js')
-        .pipe(concat('script.min.js'))
+    return src('src/app/js/**/*.js')
+
         .pipe(uglify())
         .pipe(dest('dist/js'))
         .pipe(browserSync.stream());
@@ -48,9 +54,16 @@ const js_task = () => {
 
 // --- Images таска ---
 const img_task = () => {
-    return src('src/app/img/**/*.{webp,png,jpg,jpeg}', {encoding: false})
+    return src('src/app/img/**/*.{webp,png,jpg,jpeg,svg}', { encoding: false })
         .pipe(imagemin())
         .pipe(dest('dist/img'))
+        .pipe(browserSync.stream());
+};
+
+// --- JSON таска ---
+const json_task = () => {
+    return src('src/Data base/*.json')
+        .pipe(dest('dist/Data base'))
         .pipe(browserSync.stream());
 };
 
@@ -62,14 +75,16 @@ const serve = () => {
         }
     });
 
-    watch('src/app/html/**/*.html', html_task);
-    watch('src/app/scss/**/*.scss', scss_task);
+    watch('src/app/**/*.html', html_task);
+    watch('src/app/**/*.scss', scss_task);
     watch('src/app/js/**/*.js', js_task);
     watch('src/app/img/**/*', img_task);
+    watch('src/Data base/*.json', json_task);
 };
 
 // --- Default таска ---
 exports.default = series(
-    parallel(html_task, scss_task, js_task, img_task, bootstrapCSS, bootstrapJS),
+    parallel(html_task, scss_task, js_task, img_task, json_task, bootstrapCSS, bootstrapJS),
     serve
 );
+

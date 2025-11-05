@@ -1,4 +1,7 @@
-/* --- АДАПТИВ --- */
+// ========================================
+// АДАПТИВНІСТЬ
+// ========================================
+
 @media (max-width: 1024px) {
   .wrapper {
     flex-direction: column;
@@ -18,14 +21,18 @@
     gap: 20px;
   }
 
-  .languages h2 {
-    font-size: 36px;
-  }
+  .languages {
+    h2 {
+      font-size: 36px;
+    }
 
-  .language span,
-  .language-2 span,
-  .language-3 span {
-    font-size: 20px;
+    .language,
+    .language-2,
+    .language-3 {
+      span {
+        font-size: 20px;
+      }
+    }
   }
 }
 
@@ -64,10 +71,10 @@
   .SECTION {
     width: 100%;
     padding: 8px 15px;
-  }
 
-  .SECTION .text-1 {
-    font-size: 14px;
+    .text-1 {
+      font-size: 14px;
+    }
   }
 
   .card-custom {
@@ -79,9 +86,11 @@
     padding-left: 25px;
   }
 
-  .language span,
-  .language-2 span,
-  .language-3 span {
-    font-size: 18px;
+  .language,
+  .language-2,
+  .language-3 {
+    span {
+      font-size: 18px;
+    }
   }
 }

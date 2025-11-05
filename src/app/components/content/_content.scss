@@ -1,3 +1,15 @@
+// ========================================
+// Змінні
+// ========================================
+$primary-color: #000;
+$text-color: #515355;
+$text-color-light: #fff;
+$font-main: "Lato", sans-serif;
+$font-alt: "Montserrat", sans-serif;
+
+// ========================================
+// SCSS
+// ========================================
 .SECTION {
   position: absolute;
   top: -25px;
@@ -5,7 +17,7 @@
   transform: translateX(-50%);
   width: 85%;
   border-radius: 40px;
-  background-color: #000;
+  background-color: $primary-color;
   min-height: 50px;
   padding: 10px 25px;
   display: flex;
@@ -13,17 +25,17 @@
   justify-content: center;
   z-index: 2;
   box-sizing: border-box;
-}
 
-.SECTION .text-1 {
-  font-size: clamp(14px, 1.5vw, 22px);
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  margin: 0;
-  text-align: center;
-  line-height: 1.2;
-  word-break: break-word;
+  .text-1 {
+    font-size: clamp(14px, 1.5vw, 22px);
+    text-transform: uppercase;
+    color: $text-color-light;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+  }
 }
 
 .card-custom {
@@ -41,59 +53,61 @@
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: none;
+  background: transparent;
+
+  .contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .contact-content {
+    display: none;
+    margin-top: 10px;
+  }
+
+  &.open {
+    .contact-content {
+      display: block;
+    }
+  }
+
+  .arrow {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+
+    &.rotated {
+      transform: rotate(90deg);
+    }
+  }
 }
 
-.contact-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.contact-content {
-  display: none;
-  margin-top: 10px;
-}
-
-.contact-block.open .contact-content {
-  display: block;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.arrow.rotated {
-  transform: rotate(90deg);
-}
-
-.text-7,
-.text-8 {
+.text-7, .text-8 {
   margin: -15px !important;
   padding: 0 !important;
 }
 
 .text-7 {
-  font-size: 27px;
+  font-size: 23px;
   text-transform: uppercase;
-  color: #515355;
-  font-weight: 900;
-  font-family: "Lato";
+  color: $text-color;
+  font-weight: 800;
+  font-family: $font-main;
   line-height: 1.1;
 }
 
 .text-8 {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 1.1;
   text-transform: uppercase;
-  color: #515355;
+  color: $text-color;
   font-weight: 400;
-  font-family: "Lato";
+  font-family: $font-main;
 }
 
-.text-9,
-.text-10 {
+.text-9, .text-10 {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -102,7 +116,7 @@
   font-size: 25px;
   font-weight: 700;
   margin-bottom: 2px;
-  color: #515355;
+  color: $text-color;
   text-align: left;
 }
 
@@ -110,7 +124,7 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #515355;
+  color: $text-color;
   text-align: left;
 }
 
@@ -120,7 +134,7 @@
   font-weight: 400;
   margin-bottom: 10px;
   text-align: left;
-  color: #515355;
+  color: $text-color;
 }
 
 .text-12 {
@@ -128,7 +142,7 @@
   font-weight: 700;
   margin-top: 5px;
   text-align: left;
-  color: #515355;
+  color: $text-color;
 }
 
 .CONTACT {
@@ -137,7 +151,7 @@
   text-transform: uppercase;
   color: #010101;
   font-weight: 900;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-alt;
   margin-bottom: 15px;
   margin-left: 5px;
 }
@@ -146,9 +160,9 @@
   font-size: 25px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #515355;
+  color: $text-color;
   font-weight: 900;
-  font-family: "Lato", sans-serif;
+  font-family: $font-main;
   margin-bottom: 10px;
   margin-left: 5px;
 }
@@ -156,9 +170,9 @@
 .URL {
   font-size: 20px;
   letter-spacing: 2px;
-  color: #515355;
+  color: $text-color;
   font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-alt;
   margin: 0;
   padding: 0;
   margin-left: 5px;
@@ -167,8 +181,8 @@
 .LOCATE {
   font-size: 20px;
   letter-spacing: 2px;
-  color: #515355;
+  color: $text-color;
   font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-alt;
   margin-left: 5px;
 }

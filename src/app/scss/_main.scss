@@ -5,66 +5,67 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 40px 10px;
-}
 
-.container {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.25),
-  0 10px 22px rgba(0,0,0,0.12);
-  padding: 40px;
-  max-width: 1600px;
-  width: 100%;
-  border: 1px solid rgba(0,0,0,0.05);
-  position: relative;
+  .container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow:
+            0 30px 60px rgba(0,0,0,0.25),
+            0 10px 22px rgba(0,0,0,0.12);
+    padding: 40px;
+    max-width: 1600px;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-}
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
 
-.col-md-4 {
-  position: relative;
-}
+    .col-md-4 {
+      position: relative;
 
-.col-md-4::before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 8px;
-  border-radius: 0px;
-  background: linear-gradient(
-                  90deg,
-                  rgba(0,0,0,0.15),
-                  rgba(0,0,0,0.05)
-  );
-  z-index: 10;
-}
+      &::before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 8px;
+        border-radius: 0;
+        background: linear-gradient(
+                        90deg,
+                        rgba(0,0,0,0.15),
+                        rgba(0,0,0,0.05)
+        );
+        z-index: 10;
+      }
+    }
 
-.mb-4 {
-  position: relative;
-  max-width: 700px;
-  margin: 60px auto;
-}
+    .mb-4 {
+      position: relative;
+      max-width: 700px;
+      margin: 60px auto;
+    }
 
-.footer-block,
-.extra-footer-block {
-  display: block;
-  width: 100%;
-  clear: both;
-}
+    .footer-block,
+    .extra-footer-block {
+      display: block;
+      width: 100%;
+      clear: both;
+    }
 
-.content-block{
-  padding-left: 100px;
-}
+    .content-block {
+      padding-left: 100px;
+    }
 
-.icon-white {
-  color: white;
-  font-size: 1.5em;
-  margin-right: 10px;
-  vertical-align: middle;
+    .icon-white {
+      color: white;
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
 }
